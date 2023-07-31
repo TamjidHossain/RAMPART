@@ -76,15 +76,15 @@ Example: _```python processing.py 5000 500 500 20 1 1 1 1 low```_ <br /><br />
 Your processed output will be stored inside the "Main/ProcessedOutput" folder in .csv format. Example output files are: ProcessedSG.csv, ProcessedReward.csv, ProcessedConvergence.csv, etc.<br /><br />
 2. Then one-by-one run "Main/graph_SG.py", "Main/graph_reward.py", "Main/graph_convergence.py", etc. through below example steps.<br /><br />
 	a. Open Main/graph_SG.py and edit line 49-56 as per your experiment and graph generation preferences<br />
-	b. run _python graph_SG.py episode_num gap env_type_   (example: _python graph_SG.py 5000 500 low_)<br /><br />
+	b. run _```python graph_SG.py episode_num gap env_type```_   (example: _```python graph_SG.py 5000 500 low```_)<br /><br />
 	c. Open Main/graph_reward.py and edit line 50-57 as per your experiment and graph generation preferences<br />
-	d. run _python graph_reward.py episode_num gap env_type_  (example: _python graphGenerator_Reward.py 5000 500 low_)<br /><br />
+	d. run _```python graph_reward.py episode_num gap env_type```_  (example: _```python graphGenerator_Reward.py 5000 500 low```_)<br /><br />
 	e. Open Main/graph_convergence.py and edit line 52-59 as per your experiment and graph generation preferences<br />
-	f. run _python graph_convergence.py episode_num gap env_type_   (example: _python graph_convergence.py 5000 20 low_)<br /><br />
+	f. run _```python graph_convergence.py episode_num gap env_type```_   (example: _```python graph_convergence.py 5000 20 low```_)<br /><br />
  	g. Open Main/graph_dis_gen_loss.py and edit line 45-53 as per your experiment and graph generation preferences<br />
-	h. run _python graph_dis_gen_loss.py env_type_   (example: _python graph_dis_gen_loss.py low_)<br /><br />
+	h. run _```python graph_dis_gen_loss.py env_type```_   (example: _```python graph_dis_gen_loss.py low```_)<br /><br />
  	i. Open Main/graph_anomalyScore.py and edit line 36-44 as per your experiment and graph generation preferences<br />
-	j. run _python graph_anomalyScore.py env_type_   (example: _python graph_anomalyScore.py low_)<br /><br />
+	j. run _```python graph_anomalyScore.py env_type```_   (example: _```python graph_anomalyScore.py low```_)<br /><br />
 	
 	
 Your output graphs will be stored in "./Main" folder <br /><br />
