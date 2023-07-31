@@ -90,12 +90,13 @@ Your output graphs will be stored in "./Main" folder <br /><br />
 3. For convenience, we include a "ProcessedFiles" folder that is already populated by the results of our experiments. <br />
 	Processed outputs are already in the "ProcessedFiles/ProcssedOutput" folder.<br /><br />
 	Simply, run the following commands from **./ProcessedFiles folder** to see the graphs we have included in our paper<br/>
-	
+	```
 	python graph_SG.py 2000 1 low
 	python graph_reward.py 2000 1 low
 	python graph_convergence.py 2000 1 low
 	python graph_dis_gen_loss.py low
 	python graph_anomalyScore.py low
+ 	```
 	
 	
 ## Contact
