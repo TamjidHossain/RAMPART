@@ -35,7 +35,7 @@ Ap: Attack Percentage [0,100]<br />
 D: Display environment [on, off]<br />
 S: Sleep (sec)<br />
 M: Play mode [random, static]<br />
-Et: Environment type [small, medium, large] <br />
+Et: Environment type [low, medium, heavy] <br />
 gl: GAN loss threshold [0,1] <br />
 ge: GAN training epoch <br />
 gE: GAN training Episode <br />
@@ -45,7 +45,7 @@ gaD: GAN anomaly detection threshold [0,1] <br />
 Example:<br />
 
 python RandomInit.py 15 20 5 2000 10 0.90 <br />
-python RAMPART_main.py 15 20 5 2000 10 0.90 20 on 2 random large 0.95 1000 100 0.8<br />
+python RAMPART_main.py 15 20 5 2000 10 0.90 20 on 2 random heavy 0.95 1000 100 0.8<br />
 
 <br /><br />
          
@@ -57,35 +57,45 @@ The **file name** associated with any experiment is appended into a log file (RA
 The results (Steps to goal (SG), Rewards, Convergence) of any experiment are stored categorically by file name in "Main/SG", "Main/Reward", "Main/Convergence" respectively as a pickle file.
 <br />
 **Graph Generation and Reproduction**
-1. Open processing.py file from "Main/" folder. Edit line 21-37 according to your experiments. Then run following command
-	_python processing.py episode_num sg_gap reward_gap conv_gap env_type_
+1. Open processing.py file from "Main/" folder. Edit line 26-39 according to your experiments. Then run following command
+	_python processing.py episode_num sg_gap reward_gap conv_gap disGap genGap nnGap atnGap env_type_
 	where <br />
 		episode_num = number of episode<br />
 		sg_gap = plotting gap between SG values<br />
 		reward_gap = plotting gap between Reward values<br />
-    conv_gap = plotting gap between Convergence values<br />
-    env_type = environment type [Option: small/medium/large]<br />
-Example: _python processing.py 5000 500 500 20 small_ <br /><br />
+  		conv_gap = plotting gap between Convergence values<br />
+  		disGap = plotting gap between discriminator loss values <br />
+    		genGap = plotting gap between generator loss values <br />
+   		nnGap = plotting gap between no-attack neighbor (nn) (i.e., benign neighbors) anomaly score values <br />
+     		atnGap = plotting gap between attack neighbor (atn) (i.e., malicious neighbors) anomaly score values <br />
+    		env_type = environment type [Option: low/medium/heavy]<br />
+Example: _python processing.py 5000 500 500 20 1 1 1 1 low_ <br /><br />
 
-Your processed output will be stored inside the "Main/ProcessedOutput" folder in .csv format. Example output files are: ProcessedSG.csv, ProcessedReward.csv, ProcessedConvergence.csv<br /><br />
-2. Then one-by-one run "Main/graph_SG.py", "Main/graph_reward.py", "Main/graph_convergence.py" through below example steps.<br /><br />
-	a. Open Main/graph_SG.py and edit line 48-55 as per your experiment and graph generation preferences<br />
-	b. run _python graph_SG.py episode_num gap env_type_   (example: _python graph_SG.py 5000 500 small_)<br /><br />
-	c. Open Main/graph_reward.py and edit line 49-56 as per your experiment and graph generation preferences<br />
-	d. run _python graph_reward.py episode_num gap env_type_  (example: _python graphGenerator_Reward.py 5000 500 small_)<br /><br />
-	e. Open Main/graph_convergence.py and edit line 51-58 as per your experiment and graph generation preferences<br />
-	f. run _python graph_convergence.py episode_num gap env_type_   (example: _python graph_convergence.py 5000 20 small_)<br /><br />
+Your processed output will be stored inside the "Main/ProcessedOutput" folder in .csv format. Example output files are: ProcessedSG.csv, ProcessedReward.csv, ProcessedConvergence.csv, etc.<br /><br />
+2. Then one-by-one run "Main/graph_SG.py", "Main/graph_reward.py", "Main/graph_convergence.py", etc. through below example steps.<br /><br />
+	a. Open Main/graph_SG.py and edit line 49-56 as per your experiment and graph generation preferences<br />
+	b. run _python graph_SG.py episode_num gap env_type_   (example: _python graph_SG.py 5000 500 low_)<br /><br />
+	c. Open Main/graph_reward.py and edit line 50-57 as per your experiment and graph generation preferences<br />
+	d. run _python graph_reward.py episode_num gap env_type_  (example: _python graphGenerator_Reward.py 5000 500 low_)<br /><br />
+	e. Open Main/graph_convergence.py and edit line 52-59 as per your experiment and graph generation preferences<br />
+	f. run _python graph_convergence.py episode_num gap env_type_   (example: _python graph_convergence.py 5000 20 low_)<br /><br />
+ 	g. Open Main/graph_dis_gen_loss.py and edit line 45-53 as per your experiment and graph generation preferences<br />
+	h. run _python graph_dis_gen_loss.py env_type_   (example: _python graph_dis_gen_loss.py low_)<br /><br />
+ 	i. Open Main/graph_anomalyScore.py and edit line 36-44 as per your experiment and graph generation preferences<br />
+	j. run _python graph_anomalyScore.py env_type_   (example: _python graph_anomalyScore.py low_)<br /><br />
 	
 	
-Your output graphs will be stored in "Main/SG.pdf", "Main/Reward.pdf", "Main/Convergence.pdf" <br /><br />
+Your output graphs will be stored in "./Main" folder <br /><br />
 
 3. For convenience, we include a "ProcessedFiles" folder that is already populated by the results of our experiments. <br />
 	Processed outputs are already in the "ProcessedFiles/ProcssedOutput" folder.<br /><br />
 	Simply, run the following commands from **./ProcessedFiles folder** to see the graphs we have included in our paper<br/>
 	
-	python graph_SG.py 5000 500 small
-	python graph_reward.py 5000 500 small
-	python graph_convergence.py 5000 20
+	python graph_SG.py 2000 1 low
+	python graph_reward.py 2000 1 low
+	python graph_convergence.py 2000 1 low
+	python graph_dis_gen_loss.py low
+	python graph_anomalyScore.py low
 	
 	
 ## Contact
