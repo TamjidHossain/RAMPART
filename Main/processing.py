@@ -25,8 +25,8 @@ envType = sys.argv[9].lower()
 # specifies framework names
 frameworkName = ['RAMPART'] 
 
-# look into 'Main/OutputFile/BRNES.txt to fetch your desired file name' 
-# place those file names sequentially (PeLPA) inside fName variable. 
+# look into 'Main/OutputFile/RAMPART.txt to fetch your desired file name' 
+# place those file names sequentially (RAMPART) inside fName variable. 
 # here, '1729b'/a2075'/'dc756' are some example file names
 
 
