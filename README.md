@@ -43,10 +43,10 @@ gaD: GAN anomaly detection threshold [0,1] <br />
 
 <br />
 Example:<br />
-
-python RandomInit.py 15 20 5 2000 10 0.90 <br />
-python RAMPART_main.py 15 20 5 2000 10 0.90 20 on 2 random heavy 0.95 1000 100 0.8<br />
-
+```
+python RandomInit.py 15 20 5 2000 10 0.90
+python RAMPART_main.py 15 20 5 2000 10 0.90 20 on 2 random heavy 0.95 1000 100 0.8
+```
 <br /><br />
          
 However, it might take a long time until all the experiments are completed. 
@@ -69,7 +69,7 @@ The results (Steps to goal (SG), Rewards, Convergence) of any experiment are sto
    		nnGap = plotting gap between no-attack neighbor (nn) (i.e., benign neighbors) anomaly score values <br />
      		atnGap = plotting gap between attack neighbor (atn) (i.e., malicious neighbors) anomaly score values <br />
     		env_type = environment type [Option: low/medium/heavy]<br />
-Example: _python processing.py 5000 500 500 20 1 1 1 1 low_ <br /><br />
+Example: _```python processing.py 5000 500 500 20 1 1 1 1 low```_ <br /><br />
 
 Your processed output will be stored inside the "Main/ProcessedOutput" folder in .csv format. Example output files are: ProcessedSG.csv, ProcessedReward.csv, ProcessedConvergence.csv, etc.<br /><br />
 2. Then one-by-one run "Main/graph_SG.py", "Main/graph_reward.py", "Main/graph_convergence.py", etc. through below example steps.<br /><br />
