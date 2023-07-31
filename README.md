@@ -43,10 +43,12 @@ gaD: GAN anomaly detection threshold [0,1] <br />
 
 <br />
 Example:<br />
+
 ```
 python RandomInit.py 15 20 5 2000 10 0.90
 python RAMPART_main.py 15 20 5 2000 10 0.90 20 on 2 random heavy 0.95 1000 100 0.8
 ```
+
 <br /><br />
          
 However, it might take a long time until all the experiments are completed. 
